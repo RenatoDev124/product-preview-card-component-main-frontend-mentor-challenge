@@ -1,0 +1,190 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700&display=swap');
+
+:root {
+    /*** Colores ***/
+    /* primary */
+    --color-green-500: hsl(158, 36%, 37%);
+    --color-green-700: hsl(158, 42%, 18%);
+
+    /* Neutral */
+    --color-black: hsl(212, 21%, 14%);
+    --color-grey: hsl(228, 12%, 48%);
+    --color-cream: hsl(30, 38%, 92%);
+    --color-white: hsl(0, 0%, 100%);
+
+    /*** Colores sematicos ***/
+    --color-primary: var(--color-green-500);
+    --color-primary-hover: var(--color-green-700);
+    --color-text-primary: var(--color-black);
+    --color-text-secondary: var(--color-grey);
+    --color-text-inverse: var(--color-white);
+    --color-background: var(--color-cream);
+    --color-surface: var(--color-white);
+
+    /*** Fuentes ***/
+    --font-weight-medium: 500;
+    --font-weight-bold: 700;
+
+    /*** Tipografia ***/
+    --font-size-base: 14px;
+    --font-size-lg: 1.1rem;
+    --font-size-xl: 2.3rem;
+
+    /*** Altura de línea ***/
+    --line-height-title: 1.2;
+    --line-height-heading: 1.2;
+    --line-height-text: 1.75;
+
+    /*** Fuentes ***/
+    --font-family-montserrat: "Montserrat", sans-serif;
+    --font-family-fraunces: "Fraunces", sans-serif;
+
+    --font-family-primary: var(--font-family-fraunces);
+    --font-family-secondary: var(--font-family-montserrat);
+
+    --font-title: var(--font-weight-bold) var(--font-size-xl) / var(--line-height-title) var(--font-family-primary);
+    --font-heading: var(--font-weight-medium) var(--font-size-lg) / var(--line-height-heading) var(--font-family-secondary);
+    --font-text: var(--font-weight-medium) var(--font-size-base) / var(--line-height-text) var(--font-family-secondary);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font: var(--font-text);
+    background-color: var(--color-background);
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+}
+
+img.icon {
+    width: 16px;
+    height: 16px;
+    object-fit: cover;
+}
+
+.banner {
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.banner--product-1 {
+    background-image: url(images/image-product-mobile.jpg);
+    background-position: bottom;
+}
+
+.button {
+    border: none;
+    padding: 1rem;
+    border-radius: .6rem;
+    background-color: var(--color-primary);
+    color: var(--color-text-inverse);
+    font: inherit;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .5rem;
+
+    &:hover {
+        background-color: var(--color-primary-hover);
+    }
+}
+
+.productcard {
+    background-color: var(--color-surface);
+    width: 400px;
+    border-radius: 1.3rem;
+    overflow: hidden;
+
+    .productcard__content {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+
+    .productcard__header {
+        min-height: 350px;
+
+    }
+
+    .productcard__body {
+        display: grid;
+        align-content: center;
+        row-gap: .5rem;
+        padding: 2rem;
+    }
+
+    .productcard__prices {
+        display: flex;
+        align-items: center;
+        margin-bottom: .8rem;
+    }
+
+    .productcard__title {
+        color: var(--color-text-primary);
+        font: var(--font-title);
+        margin-bottom: 1.2rem;
+    }
+
+    .productcard__heading {
+        color: var(--color-text-secondary);
+        font: var(--font-heading);
+        text-transform: uppercase;
+        letter-spacing: .25rem;
+        margin-bottom: 1.2rem;
+    }
+
+    .productcard__text {
+        color: var(--color-text-secondary);
+        font: var(--font-text);
+        margin-bottom: 1rem;
+    }
+
+    .productcard__price {
+        color: var(--color-primary);
+        font: var(--font-title);
+        margin-right: 1.5rem;
+    }
+
+    .productcard__price__del {
+        color: var(--color-text-secondary);
+        text-decoration: line-through;
+        font: var(--font-text);
+    }
+}
+
+.attribution {
+    font-size: 0.6875rem;
+    text-align: center;
+}
+
+.attribution a {
+    color: hsl(228, 45%, 44%);
+}
+
+@media screen and (min-width: 1024px) {
+    .productcard {
+        width: 700px;
+
+        .productcard__content {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .productcard__header {
+            min-height: 100%;
+        }
+
+        .banner--product-1 {
+            background-image: url(images/image-product-desktop.jpg);
+            background-position: center;
+        }
+
+    }
+}
